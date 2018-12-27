@@ -42,7 +42,7 @@
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
   								<ul class="nav navbar-nav navbar-right">
     								<li class="cl-effect-11"><a href="#" data-hover="Home">Home</a></li>
-    								<li class="cl-effect-11"><a href="full-width.html" data-hover="Projects">Projects</a></li>
+    								<li class="cl-effect-11"><a href="#" data-hover="Projects">Projects</a></li>
     								<li class="cl-effect-11"><a href="{{url_for('main.about_me_route')}}" data-hover="About">About</a></li>
     								<li class="cl-effect-11"><a href="{{url_for('main.contacts_route')}}" data-hover="Contact">Contact</a></li>
   								</ul>
@@ -65,7 +65,7 @@
 		<div class="content-body">
 			<div class="container">
 				<div class="row">
-					<main class="col-md-8">
+					<main class="col-md-10">
                                         {% for article in articles %}
 						<article class="post post-1">
 							<header class="entry-header">
@@ -90,53 +90,7 @@
 							</div>
 						</article>
                                         {% endfor %}
-						
 					</main>
-					<aside class="col-md-4">
-						<div class="widget widget-recent-posts">		
-							<h3 class="widget-title">Recent Posts</h3>		
-							<ul>
-								<li>
-									<a href="#">Adaptive Vs. Responsive Layouts And Optimal Text Readability</a>
-								</li>
-								<li>
-									<a href="#">Web Design is 95% Typography</a>
-								</li>
-								<li>
-									<a href="#">Paper by FiftyThree</a>
-								</li>
-							</ul>
-						</div>
-						<div class="widget widget-archives">		
-							<h3 class="widget-title">Archives</h3>		
-							<ul>
-								<li>
-									<a href="#">November 2014</a>
-								</li>
-								<li>
-									<a href="#">September 2014</a>
-								</li>
-								<li>
-									<a href="#">January 2013</a>
-								</li>
-							</ul>
-						</div>
-
-						<div class="widget widget-category">		
-							<h3 class="widget-title">Category</h3>		
-							<ul>
-								<li>
-									<a href="#">Web Design</a>
-								</li>
-								<li>
-									<a href="#">Web Development</a>
-								</li>
-								<li>
-									<a href="#">SEO</a>
-								</li>
-							</ul>
-						</div>
-					</aside>
 				</div>
 			</div>
 		</div>

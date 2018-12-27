@@ -37,17 +37,18 @@ def main(logger, argv):
     """
     usage: prog "title of article" "writer" "category" "filename"
     """
-    if len(argv) != 5:
-        logger.write('unable to process blog\n\nusage: prog "title of article" "writer" "category" "filename"')
+    if len(argv) != 6:
+        logger.write('unable to process blog\n\nusage: prog "title of article" "writer" "category" "in brief" "filename"')
         exit(-1)
     
-    title, writer, category, filename = (argv[1], argv[2], argv[3], argv[4])
+    title, writer, category, brief, filename = (argv[1], argv[2], argv[3], argv[4], argv[5])
     brief_text = '' # a brief introduction of the text file
     basename = ''
     try:
         filename = os.path.normpath(os.path.abspath(filename))
-        with open(filename, 'r') as article_text:
-            brief_text = article_text.read(300)
+        with open(brief, 'r') as article_brief:
+            for brief_t in article_brief:
+                brief_text += brief_t
         with app.app_context():
             blog_path = os.path.join(current_app.instance_path, 'blogs')
             if not os.path.exists(blog_path):
@@ -56,6 +57,7 @@ def main(logger, argv):
         basename = os.path.join(blog_path, os.path.basename(filename))
     except Exception as e:
         logger.write(str(e))
+        print(e)
         exit(-1)
     time.sleep(sleep_time)
     with app.app_context():
@@ -71,6 +73,7 @@ def main(logger, argv):
                 data_cache.hmset(article_key, {basename: text})
         except Exception as exception:
             db.session.rollback()
+            print(exception)
             logger.write(str(exception))
 
 

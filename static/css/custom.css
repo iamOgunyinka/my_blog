@@ -246,6 +246,11 @@ figure {
 	color: #000;
 }
 
+.entry-content p {
+        text-align: justify;
+        text-justify: inter-word;
+}
+
 .post-category,
 .post-date,
 .post-author {

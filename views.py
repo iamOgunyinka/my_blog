@@ -30,7 +30,8 @@ def handle_csrf_error_handler(error):
 @main.route('/index')
 @main.route('/')
 def index_route():
-    all_articles = Article.get_articles(db.session.query(Article).all())
+    # get latest articles first
+    all_articles = Article.get_articles(db.session.query(Article).order_by(Article.id.desc()).all())
     return render_template('index.html', articles=all_articles)
 
 
