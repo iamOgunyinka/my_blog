@@ -2,16 +2,16 @@
 # -*- coding: utf-8 -*-
 #
 #  Copyright 2018 Joshua <ogunyinkajoshua@gmail.com>
-from functools import wraps
-from datetime import datetime
-from flask import Blueprint, render_template, url_for, redirect, request, abort, flash, current_app, jsonify
-from flask_wtf.csrf import CSRFError
-from sqlalchemy.exc import IntegrityError, OperationalError
-from models import db, ContactMessage, Article, Comment
-from werkzeug.utils import secure_filename
-from logging import log, ERROR
-import os, redis, json
+import json
+import os
+import redis
+from logging import log
 
+from flask import Blueprint, render_template, url_for, redirect, request, abort, flash
+from flask_wtf.csrf import CSRFError
+from sqlalchemy.exc import IntegrityError
+
+from models import db, ContactMessage, Article
 
 main = Blueprint('main', __name__)
 cache_pass,port_number=os.environ.get('redis_pass'),int(os.environ.get('redis_port'))

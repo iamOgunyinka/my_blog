@@ -3,9 +3,9 @@
 #
 #  Copyright 2018 Joshua <ogunyinkajoshua@gmail.com>
 
+import os
+
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
-import os, json
 
 db = SQLAlchemy()
 DEFAULT_DISPLAY_PICTURE = os.environ.get('DEFAULT_DP')

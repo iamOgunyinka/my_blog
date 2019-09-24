@@ -4,13 +4,14 @@
 #  Copyright June, 2018 Joshua <ogunyinkajoshua@yahoo.com>
 #
 
-from flask import Flask
-from flask_moment import Moment
-from models import db
-from flask_uploads import configure_uploads, patch_request_class
-from flask_bootstrap import Bootstrap
-from flask_wtf.csrf import CSRFProtect
 import os
+
+from flask import Flask
+from flask_bootstrap import Bootstrap
+from flask_moment import Moment
+from flask_wtf.csrf import CSRFProtect
+
+from models import db
 
 moment = Moment()
 bootstrap = Bootstrap()

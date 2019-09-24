@@ -4,9 +4,9 @@
 #  Copyright 2018 Joshua <ogunyinkajoshua@gmail.com>
 #  
 
-from init_file import create_app, db
 from flask_migrate import Migrate
 
+from init_file import create_app, db
 
 app = create_app()
 migrate = Migrate(app, db)

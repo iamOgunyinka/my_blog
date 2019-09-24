@@ -5,13 +5,17 @@
 #  
 #  Copyright 2019 Josh <Josh@JOSHUA>
 
+import os
+import redis
+import shutil
+import time
+from datetime import datetime
+from threading import Thread
+
 from flask import Flask, current_app
 from flask_sqlalchemy import SQLAlchemy
-from models import Article
-from threading import Thread
-from datetime import datetime
-import os, redis, time, shutil
 
+from models import Article
 
 cache_pass, port_number = os.environ.get('redis_pass'), int(os.environ.get('redis_port'))
 data_cache = redis.StrictRedis(password=cache_pass, port=port_number)
